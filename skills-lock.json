@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "plantuml": {
+      "source": "full-stack-skills/document-skills",
+      "sourceType": "github",
+      "skillPath": "skills/plantuml/SKILL.md",
+      "computedHash": "1a9e458505c7b19ab619b14bf573d99d7613360f5fcd6a64eeb4f0de7adee95f"
+    }
+  }
+}

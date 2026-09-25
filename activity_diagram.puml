@@ -1,0 +1,128 @@
+@startuml activity_portfolio
+
+!define START_COLOR #2ecc71
+!define END_COLOR #e74c3c
+!define DECISION_COLOR #f39c12
+!define PROCESS_COLOR #3498db
+!define SYNC_COLOR #9b59b6
+
+skinparam activity {
+  BackgroundColor #f8f9fa
+  BorderColor #dee2e6
+  FontColor #212529
+}
+
+skinparam start {
+  BackgroundColor START_COLOR
+  BorderColor #27ae60
+  FontColor white
+}
+
+skinparam end {
+  BackgroundColor END_COLOR
+  BorderColor #c0392b
+  FontColor white
+}
+
+skinparam decision {
+  BackgroundColor DECISION_COLOR
+  BorderColor #e67e22
+  FontColor white
+  FontStyle bold
+}
+
+skinparam process {
+  BackgroundColor PROCESS_COLOR
+  BorderColor #2980b9
+  FontColor white
+  FontStyle bold
+}
+
+skinparam fork {
+  BackgroundColor SYNC_COLOR
+  BorderColor #8e44ad
+  FontColor white
+}
+
+skinparam join {
+  BackgroundColor SYNC_COLOR
+  BorderColor #8e44ad
+  FontColor white
+}
+
+title Diagramme d'Activités - Portfolio Personnel
+
+start
+
+:Arrivée sur le portfolio\n(URL Vercel);
+
+fork
+  :Chargement ressources\n(HTML, CSS, JS, images);
+  :Initialisation Dark Mode\n(localStorage/préférence système);
+  :Initialisation i18n\n(langue navigateur/défaut FR);
+fork again
+  :Vérification SEO\n(meta tags, sitemap);
+  :Chargement Analytics\n(Google Analytics/Plausible);
+end fork
+
+:Affichage page d'accueil\n(Hero + À propos);
+
+if (Action visiteur ?) then (Navigation compétences)
+  :Affichage section\nCompétences;
+  :Filtrage par catégorie\n(Langages, Frameworks, Outils);
+  :Retour accueil;
+elseif (Navigation projets)
+  :Affichage liste projets\n(grille/cartes);
+  if (Filtre appliqué ?) then (Oui)
+    :Filtrage par technologie/type;
+    :Mise à jour affichage;
+  else (Non)
+  endif
+  if (Clic projet ?) then (Oui)
+    :Ouverture modal/détail projet;
+    :Affichage: description, tech stack,\n rôle, liens GitHub/Demo, captures;
+    if (Clic lien externe ?) then (GitHub)
+      :Ouverture GitHub\n(nouvel onglet);
+    elseif (Demo)
+      :Ouverture démo\n(nouvel onglet);
+    endif
+    :Fermeture détail;
+  else (Non)
+  endif
+  :Retour accueil;
+elseif (Consultation "À propos" / Téléchargement CV)
+  :Affichage section\nÀ propos (parcours, formation, soft skills, langues, centres d'intérêt);
+  if (Clic bouton "Télécharger CV" ?) then (Oui)
+    :Génération/Téléchargement\nPDF CV;
+  endif
+  :Retour accueil;
+elseif (Contact)
+  :Affichage formulaire\ncontact;
+  :Remplissage champs\n(nom, email, message);
+  if (Validation formulaire ?) then (Valide)
+    :Envoi via EmailJS/Formspree;
+    if (Envoi réussi ?) then (Succès)
+      :Affichage confirmation\n"Message envoyé";
+    else (Échec)
+      :Affichage erreur\n"Réessayez plus tard";
+    endif
+  else (Invalide)
+    :Affichage erreurs\nchamps obligatoires;
+  endif
+  :Retour accueil;
+elseif (Changement thème)
+  :Basculement Dark/Light\nMode;
+  :Sauvegarde préférence\nlocalStorage;
+  :Réapplication styles\nimmédiate;
+  :Retour accueil;
+elseif (Changement langue)
+  :Basculement FR/EN;
+  :Traduction contenus\n(i18n);
+  :Sauvegarde préférence\nlocalStorage;
+  :Retour accueil;
+else (Quitte le site)
+endif
+
+stop
+
+@enduml
