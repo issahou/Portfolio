@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me",
+    "scrollDown": "Discover"
+  },
+  "about": {
+    "title": "About Me",
+    "journey": "Journey",
+    "education": "Education",
+    "softSkills": "Soft Skills",
+    "languages": "Languages",
+    "interests": "Interests"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "level": "Level",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "expert": "Expert"
+  },
+  "projects": {
+    "title": "My Projects",
+    "filter": "Filter",
+    "all": "All",
+    "byTech": "By technology",
+    "byType": "By type",
+    "viewProject": "View Project",
+    "github": "GitHub",
+    "demo": "Demo",
+    "technologies": "Technologies",
+    "role": "Role",
+    "type": {
+      "academique": "Academic",
+      "personnel": "Personal",
+      "professionnel": "Professional",
+      "hackathon": "Hackathon"
+    }
+  },
+  "experience": {
+    "title": "Experience & Education",
+    "experiences": "Professional Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "present": "Present",
+    "technologies": "Technologies"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Got a question? A proposal? Don't hesitate!",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send. Please try again later.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email",
+        "subjectRequired": "Subject is required",
+        "messageRequired": "Message is required"
+      }
+    },
+    "direct": "Or contact me directly:"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "builtWith": "Built with"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "system": "System"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  },
+  "cv": {
+    "download": "Download CV",
+    "downloading": "Downloading..."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "This page doesn't exist or has been moved.",
+    "backHome": "Back to Home"
+  }
+}

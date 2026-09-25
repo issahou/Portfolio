@@ -1,0 +1,68 @@
+{
+  "categories": [
+    {
+      "name": "Langages",
+      "icon": "code",
+      "items": [
+        { "name": "TypeScript", "level": 5, "icon": "ts" },
+        { "name": "JavaScript", "level": 5, "icon": "js" },
+        { "name": "Python", "level": 4, "icon": "python" },
+        { "name": "Java", "level": 3, "icon": "java" },
+        { "name": "C++", "level": 3, "icon": "cpp" },
+        { "name": "Go", "level": 2, "icon": "go" }
+      ]
+    },
+    {
+      "name": "Frameworks Frontend",
+      "icon": "layout",
+      "items": [
+        { "name": "React", "level": 5, "icon": "react" },
+        { "name": "Next.js", "level": 5, "icon": "nextjs" },
+        { "name": "Tailwind CSS", "level": 5, "icon": "tailwind" },
+        { "name": "Vue.js", "level": 3, "icon": "vue" }
+      ]
+    },
+    {
+      "name": "Frameworks Backend",
+      "icon": "server",
+      "items": [
+        { "name": "Node.js", "level": 5, "icon": "nodejs" },
+        { "name": "Express", "level": 4, "icon": "express" },
+        { "name": "NestJS", "level": 3, "icon": "nestjs" },
+        { "name": "FastAPI", "level": 3, "icon": "fastapi" }
+      ]
+    },
+    {
+      "name": "Bases de données",
+      "icon": "database",
+      "items": [
+        { "name": "PostgreSQL", "level": 4, "icon": "postgresql" },
+        { "name": "MongoDB", "level": 3, "icon": "mongodb" },
+        { "name": "Redis", "level": 3, "icon": "redis" },
+        { "name": "Prisma", "level": 4, "icon": "prisma" }
+      ]
+    },
+    {
+      "name": "Outils & DevOps",
+      "icon": "tool",
+      "items": [
+        { "name": "Git", "level": 5, "icon": "git" },
+        { "name": "Docker", "level": 4, "icon": "docker" },
+        { "name": "GitHub Actions", "level": 4, "icon": "github" },
+        { "name": "Vercel", "level": 5, "icon": "vercel" },
+        { "name": "AWS", "level": 3, "icon": "aws" },
+        { "name": "Linux", "level": 4, "icon": "linux" }
+      ]
+    },
+    {
+      "name": "Méthodologies",
+      "icon": "users",
+      "items": [
+        { "name": "Agile / Scrum", "level": 5, "icon": "scrum" },
+        { "name": "TDD", "level": 3, "icon": "tdd" },
+        { "name": "CI/CD", "level": 4, "icon": "cicd" },
+        { "name": "Architecture Clean/Hexagonale", "level": 4, "icon": "architecture" }
+      ]
+    }
+  ]
+}

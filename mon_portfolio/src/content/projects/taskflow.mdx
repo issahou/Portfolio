@@ -1,0 +1,61 @@
+---
+title: "TaskFlow - Gestion de Projets Agile"
+description: "Application collaborative de gestion de projets avec tableaux Kanban, sprints et temps réel"
+technologies: ["React", "TypeScript", "Node.js", "Socket.io", "PostgreSQL", "Redis", "Docker"]
+role: "Full Stack Developer"
+type: "academique"
+github: "https://github.com/votreprofil/taskflow"
+demo: "https://taskflow-demo.vercel.app"
+images: ["/images/taskflow-1.jpg", "/images/taskflow-2.jpg"]
+featured: true
+order: 2
+---
+
+# TaskFlow - Gestion de Projets Agile
+
+Application web collaborative inspirée de **Jira/Trello** pour la gestion de projets en méthodologie Agile/Scrum.
+
+## Fonctionnalités clés
+
+- **Tableaux Kanban** : Drag & drop (dnd-kit), colonnes personnalisables, WIP limits
+- **Sprints & Backlog** : Planification, estimation (story points), burndown charts
+- **Temps réel** : WebSockets (Socket.io) pour mises à jour instantanées multi-utilisateurs
+- **Notifications** : In-app + email (nouvelles assignations, mentions, échéances)
+- **Rapports** : Vélocité, cycle time, cumulative flow diagram (Recharts)
+
+## Stack technique
+
+| Couche | Technologies |
+|--------|--------------|
+| Frontend | React 18, TypeScript, Tailwind, Zustand, React Query |
+| Backend | Node.js, Express, TypeScript, Prisma ORM |
+| Real-time | Socket.io, Redis (pub/sub, session store) |
+| DB | PostgreSQL (relationnel), Redis (cache, sessions) |
+| DevOps | Docker, Docker Compose, GitHub Actions, Vercel/Railway |
+
+## Architecture temps réel
+
+```
+Client A          Client B          Client C
+   │                │                │
+   └──────┬─────────┴────────┬───────┘
+          │                  │
+      ┌───▼───┐          ┌───▼───┐
+      │ Socket.io       │ Redis │
+      │ Server (x3) ◄───► Pub/Sub │
+      └───────┘          └───────┘
+```
+
+- **Horizontal scaling** : Multiple Socket.io servers derrière load balancer
+- **Redis Adapter** : Synchronisation des rooms/events entre instances
+- **Presence** : Heartbeat + TTL Redis pour détection déconnexion
+
+## Résultats académiques
+
+- **Note** : 18/20 (Projet de fin d'année 4ème année)
+- **Présentation** : Soutenance devant jury professionnel + académique
+- **Open Source** : 120+ stars GitHub, 15 contributeurs externes
+
+---
+
+*Projet académique (PFE 4ème année) - Équipe de 4 étudiants*

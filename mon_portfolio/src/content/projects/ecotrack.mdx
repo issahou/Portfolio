@@ -1,0 +1,52 @@
+---
+title: "EcoTrack - Suivi Empreinte Carbone"
+description: "Application mobile PWA pour calculer et réduire son empreinte carbone quotidienne"
+technologies: ["React", "TypeScript", "Vite", "PWA", "Chart.js", "IndexedDB", "Workbox"]
+role: "Frontend Lead"
+type: "hackathon"
+github: "https://github.com/votreprofil/ecotrack"
+demo: "https://ecotrack-hackathon.vercel.app"
+images: ["/images/ecotrack-1.jpg"]
+featured: false
+order: 3
+---
+
+# EcoTrack - Hackathon GreenTech 2024
+
+Développée en **48h** lors du **Hackathon GreenTech 2024** (Thème : "Tech for Climate"), EcoTrack est une **PWA (Progressive Web App)** permettant aux citoyens de mesurer et réduire leur empreinte carbone.
+
+## Fonctionnalités (MVP 48h)
+
+- **Calculateur empreinte** : Questionnaire adaptatif (transport, logement, alimentation, numérique)
+- **Dashboard personnel** : Graphiques interactifs (Chart.js), évolution mensuelle, objectifs
+- **Défis écologiques** : Quotidiens/hebdomadaires, gamification (badges, streaks)
+- **Mode hors-ligne** : Service Worker (Workbox), IndexedDB pour données locales
+- **Partage social** : Génération d'images OG pour réseaux sociaux
+
+## Contraintes hackathon
+
+| Contrainte | Solution |
+|------------|----------|
+| **48h** | Architecture modulaire, composants réutilisables, Tailwind pour UI rapide |
+| **Mobile-first** | PWA (manifest, service worker, installable), responsive design |
+| **Pas de backend** | Stockage local (IndexedDB via idb), sync différée quand online |
+| **Accessibilité** | WCAG 2.1 AA, navigation clavier, contrastes, ARIA labels |
+
+## Stack minimaliste
+
+- **Vite + React 18 + TypeScript** (build ultra-rapide, HMR)
+- **Tailwind CSS** (design system cohérent en un temps record)
+- **Chart.js** (visualisations légères, tree-shakable)
+- **Workbox** (service worker généré, stratégies cache-first/stale-while-revalidate)
+- **Vercel** (déploiement preview auto à chaque push)
+
+## Résultats
+
+- 🥈 **2ème prix** sur 47 équipes (Jury : experts climat + CTOs)
+- **Prix "Best UX/UI"** - Interface intuitive, onboarding fluide
+- **500+ utilisateurs** la première semaine post-hackathon
+- **Open Source** : Contributions bienvenues pour V2 (backend, communauté, API données publiques)
+
+---
+
+*Projet hackathon (48h) - Équipe de 3 développeurs*

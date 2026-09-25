@@ -1,0 +1,18 @@
+{
+  "name": "Your Name",
+  "title": "Software Engineering Student - 5th Year",
+  "tagline": "Full Stack Developer passionate about building modern, performant web applications.",
+  "avatar": "/images/avatar.jpg",
+  "about": "Currently in 5th year of Software Engineering, I'm looking for a final year internship / first job / apprenticeship. My journey has given me solid experience in web development (React, Node.js, TypeScript), software architecture, and agile methodologies.\n\n**Background & Education**\n- Software Engineering Degree (2021-2026) - Honors\n- Specialization: Full Stack Development & Cloud\n- International exchange: Semester abroad\n\n**Soft Skills**\n- Technical communication & simplification\n- Teamwork & technical leadership\n- Complex problem solving\n- Continuous learning & tech watch\n\n**Languages**\n- French: Native\n- English: Fluent (TOEIC 900+)\n- Spanish: Basic\n\n**Interests**\n- Open Source & community contribution\n- Hackathons & coding competitions\n- Hiking & photography\n- Music (guitar)",
+  "social": {
+    "email": "you@email.com",
+    "phone": "+33 X XX XX XX XX",
+    "linkedin": "https://linkedin.com/in/yourprofile",
+    "github": "https://github.com/yourprofile",
+    "twitter": "https://x.com/yourprofile"
+  },
+  "cv": {
+    "filename": "CV_YourName.pdf",
+    "url": "/cv/CV_YourName.pdf"
+  }
+}

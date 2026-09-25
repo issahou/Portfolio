@@ -1,0 +1,67 @@
+{
+  "experiences": [
+    {
+      "title": "Full Stack Developer Intern",
+      "company": "TechCorp SAS",
+      "location": "Paris, France",
+      "start": "2025-01",
+      "end": "2025-06",
+      "description": [
+        "Developed a B2B SaaS platform with Next.js/TypeScript",
+        "Designed and implemented REST APIs with NestJS and PostgreSQL",
+        "Set up CI/CD pipelines with GitHub Actions",
+        "Collaborated in Scrum team (5 developers)"
+      ],
+      "technologies": ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"]
+    },
+    {
+      "title": "Freelance Developer",
+      "company": "Self-employed",
+      "location": "Remote",
+      "start": "2024-03",
+      "end": "2024-12",
+      "description": [
+        "Built showcase and e-commerce websites for local SMEs",
+        "Migrated legacy sites to React/Next.js",
+        "SEO and performance optimization (Core Web Vitals)"
+      ],
+      "technologies": ["React", "Next.js", "Tailwind CSS", "WordPress", "Vercel"]
+    },
+    {
+      "title": "Junior Web Developer Intern",
+      "company": "Innovate Startup",
+      "location": "Lyon, France",
+      "start": "2023-06",
+      "end": "2023-08",
+      "description": [
+        "Developed features on React Native application",
+        "Wrote unit and integration tests (Jest, React Testing Library)",
+        "Participated in code reviews and Scrum ceremonies"
+      ],
+      "technologies": ["React Native", "TypeScript", "Expo", "Jest", "Firebase"]
+    }
+  ],
+  "formation": [
+    {
+      "degree": "Software Engineering Degree (Master's Level)",
+      "school": "National School of Computer Science",
+      "location": "Paris, France",
+      "start": "2021",
+      "end": "2026",
+      "honors": "Honors - Class Valedictorian 2024"
+    },
+    {
+      "degree": "Bachelor's in Computer Science",
+      "school": "Paris-Saclay University",
+      "location": "Orsay, France",
+      "start": "2018",
+      "end": "2021",
+      "honors": "Honors"
+    }
+  ],
+  "certifications": [
+    { "name": "AWS Certified Cloud Practitioner", "year": 2024, "url": "https://aws.amazon.com/certification/" },
+    { "name": "Google Cloud Associate Cloud Engineer", "year": 2024, "url": "https://cloud.google.com/certification" },
+    { "name": "Scrum Master Certified (PSM I)", "year": 2023, "url": "https://www.scrum.org/" }
+  ]
+}

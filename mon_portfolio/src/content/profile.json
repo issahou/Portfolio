@@ -1,0 +1,18 @@
+{
+  "name": "Votre Nom",
+  "title": "Étudiant Ingénieur Informatique - 5ème Année",
+  "tagline": "Développeur Full Stack passionné par la création d'applications web modernes et performantes.",
+  "avatar": "/images/avatar.jpg",
+  "about": "Actuellement en 5ème année de cycle ingénieur en informatique, je suis à la recherche d'un stage de fin d'études / premier emploi / alternance. Mon parcours m'a permis d'acquérir une solide expérience en développement web (React, Node.js, TypeScript), en architecture logicielle et en méthodes agiles.\n\n**Parcours & Formation**\n- Diplôme d'Ingénieur Informatique (2021-2026) - Mention Bien\n- Spécialisation : Développement Full Stack & Cloud\n- Échanges internationaux : Semestre à l'étranger\n\n**Soft Skills**\n- Communication technique & vulgarisation\n- Travail en équipe & leadership technique\n- Résolution de problèmes complexes\n- Apprentissage continu & veille technologique\n\n**Langues**\n- Français : Langue maternelle\n- Anglais : Courant (TOEIC 900+)\n- Espagnol : Notions\n\n**Centres d'intérêt**\n- Open Source & contribution communautaire\n- Hackathons & compétitions de programmation\n- Randonnée & photographie\n- Musique (guitare)",
+  "social": {
+    "email": "vous@email.com",
+    "phone": "+33 X XX XX XX XX",
+    "linkedin": "https://linkedin.com/in/votreprofil",
+    "github": "https://github.com/votreprofil",
+    "twitter": "https://x.com/votreprofil"
+  },
+  "cv": {
+    "filename": "CV_VotreNom.pdf",
+    "url": "/cv/CV_VotreNom.pdf"
+  }
+}

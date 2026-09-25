@@ -1,0 +1,67 @@
+{
+  "experiences": [
+    {
+      "title": "Stage Développeur Full Stack",
+      "company": "TechCorp SAS",
+      "location": "Paris, France",
+      "start": "2025-01",
+      "end": "2025-06",
+      "description": [
+        "Développement d'une plateforme SaaS B2B en Next.js/TypeScript",
+        "Conception et implémentation d'API REST avec NestJS et PostgreSQL",
+        "Mise en place de pipelines CI/CD avec GitHub Actions",
+        "Collaboration en équipe Scrum (5 développeurs)"
+      ],
+      "technologies": ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"]
+    },
+    {
+      "title": "Développeur Freelance",
+      "company": "Auto-entrepreneur",
+      "location": "À distance",
+      "start": "2024-03",
+      "end": "2024-12",
+      "description": [
+        "Création de sites vitrines et e-commerce pour PME locales",
+        "Migration de sites legacy vers React/Next.js",
+        "Optimisation SEO et performance (Core Web Vitals)"
+      ],
+      "technologies": ["React", "Next.js", "Tailwind CSS", "WordPress", "Vercel"]
+    },
+    {
+      "title": "Stage Développeur Web Junior",
+      "company": "Startup Innovate",
+      "location": "Lyon, France",
+      "start": "2023-06",
+      "end": "2023-08",
+      "description": [
+        "Développement de fonctionnalités sur application React Native",
+        "Écriture de tests unitaires et d'intégration (Jest, React Testing Library)",
+        "Participation aux code reviews et rituels Scrum"
+      ],
+      "technologies": ["React Native", "TypeScript", "Expo", "Jest", "Firebase"]
+    }
+  ],
+  "formation": [
+    {
+      "degree": "Diplôme d'Ingénieur Informatique (Bac+5)",
+      "school": "École Nationale Supérieure d'Informatique",
+      "location": "Paris, France",
+      "start": "2021",
+      "end": "2026",
+      "honors": "Mention Bien - Major de promotion 2024"
+    },
+    {
+      "degree": "Licence Informatique (Bac+3)",
+      "school": "Université Paris-Saclay",
+      "location": "Orsay, France",
+      "start": "2018",
+      "end": "2021",
+      "honors": "Mention Assez Bien"
+    }
+  ],
+  "certifications": [
+    { "name": "AWS Certified Cloud Practitioner", "year": 2024, "url": "https://aws.amazon.com/certification/" },
+    { "name": "Google Cloud Associate Cloud Engineer", "year": 2024, "url": "https://cloud.google.com/certification" },
+    { "name": "Scrum Master Certified (PSM I)", "year": 2023, "url": "https://www.scrum.org/" }
+  ]
+}

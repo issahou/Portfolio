@@ -1,0 +1,55 @@
+---
+title: "E-Commerce Platform"
+description: "Plateforme e-commerce complète avec gestion des stocks, paiements et tableau de bord admin"
+technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Stripe", "NextAuth.js"]
+role: "Lead Developer Full Stack"
+type: "personnel"
+github: "https://github.com/votreprofil/ecommerce-platform"
+demo: "https://ecommerce-demo.vercel.app"
+images: ["/images/ecommerce-1.jpg", "/images/ecommerce-2.jpg"]
+featured: true
+order: 1
+---
+
+# E-Commerce Platform
+
+Une plateforme e-commerce moderne construite avec **Next.js 14 (App Router)**, **TypeScript** et **Tailwind CSS**.
+
+## Fonctionnalités principales
+
+- **Catalogue produits** : Filtrage, recherche, catégories, pagination infinie
+- **Panier & Checkout** : Intégration Stripe (paiements, webhooks, remboursements)
+- **Authentification** : NextAuth.js (credentials, OAuth GitHub/Google)
+- **Espace Admin** : Dashboard analytics, gestion commandes, CRUD produits
+- **Gestion stocks** : Temps réel, alertes rupture, variantes produits
+
+## Architecture
+
+```
+src/
+├── app/
+│   ├── (shop)/          # Routes publiques (catalogue, produit, panier)
+│   ├── (auth)/          # Login, register, password reset
+│   ├── (admin)/         # Dashboard protégé (RBAC)
+│   └── api/             # API Routes (webhooks, actions serveur)
+├── components/          # Composants partagés (UI, formulaires)
+├── lib/                 # Utils, DB, auth, paiements
+└── types/               # Types TypeScript partagés
+```
+
+## Défis techniques relevés
+
+1. **Server Actions** pour les mutations (ajout panier, commande) sans API Routes
+2. **Optimistic UI** pour une UX fluide (React 19 useOptimistic)
+3. **Database migrations** avec Prisma en production (zero-downtime)
+4. **SEO dynamique** : metadata générées par produit, sitemap.xml auto
+
+## Résultats
+
+- **Lighthouse** : 98/100 Performance, 100 Accessibilité, 100 SEO
+- **Core Web Vitals** : LCP < 1.2s, CLS < 0.05, FID < 50ms
+- **Conversion** : +34% vs version précédente (WordPress/WooCommerce)
+
+---
+
+*Projet personnel - Code source disponible sur [GitHub](https://github.com/votreprofil/ecommerce-platform)*

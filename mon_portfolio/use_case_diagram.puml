@@ -1,0 +1,91 @@
+@startuml use_case_portfolio
+
+!define ACTOR_COLOR #1f77b4
+!define UC_COLOR #ff7f0e
+!define PACKAGE_COLOR #e8e8e8
+!define INCLUDE_COLOR #27ae60
+!define EXTEND_COLOR #e74c3c
+
+skinparam actor {
+  BackgroundColor ACTOR_COLOR
+  BorderColor #1a5a8a
+  FontColor white
+  FontStyle bold
+}
+
+skinparam usecase {
+  BackgroundColor UC_COLOR
+  BorderColor #cc6600
+  FontColor white
+  FontStyle bold
+}
+
+skinparam package {
+  BackgroundColor PACKAGE_COLOR
+  BorderColor #999999
+  FontColor #333333
+  FontStyle bold
+}
+
+skinparam arrow {
+  Color #666666
+  FontColor #333333
+}
+
+actor "Visiteur/Recruteur" as Visiteur
+actor "Étudiant\n(Propriétaire)" as Etudiant
+actor "Système Email\n(EmailJS/Formspree)" as EmailSystem
+
+package "Portfolio Personnel" {
+  usecase "Consulter la page\nd'accueil/À propos" as UC1
+  usecase "Naviguer dans les\ncompétences techniques" as UC2
+  usecase "Parcourir les projets\navec filtres" as UC3
+  usecase "Voir détails d'un\nprojet (GitHub, démo)" as UC4
+  usecase "Consulter le parcours\n(Expériences/Formation)" as UC5
+  usecase "Télécharger le CV\n(PDF)" as UC6
+  usecase "Envoyer un message\nvia formulaire contact" as UC7
+  usecase "Basculer mode\nsombre/clair" as UC8
+  usecase "Changer la langue\n(FR/EN)" as UC9
+  usecase "Partager le portfolio\nsur réseaux sociaux" as UC10
+  
+  usecase "Filtrer projets\npar techno/type" as UC3a
+  usecase "Ouvrir lien\nGitHub/Demo" as UC4a
+}
+
+package "Administration (Étudiant)" {
+  usecase "Mettre à jour le\ncontenu (projets, CV)" as UC11
+  usecase "Déployer le site\nsur Vercel" as UC12
+  usecase "Gérer le repo\nGitHub" as UC13
+  usecase "Analyser le trafic\n(Analytics)" as UC14
+}
+
+' Acteurs vers cas d'utilisation principaux
+Visiteur --> UC1
+Visiteur --> UC2
+Visiteur --> UC3
+Visiteur --> UC5
+Visiteur --> UC7
+
+Etudiant --> UC11
+Etudiant --> UC12
+Etudiant --> UC13
+Etudiant --> UC14
+
+' INCLUDE (obligatoire, toujours exécuté)
+UC4 .> UC3 : <<include>>\n(voir détails\nnécessite liste)
+UC6 .> UC1 : <<include>>\n(CV dans\nsection À propos)
+UC7 .> UC1 : <<include>>\n(formulaire\ndepuis accueil)
+
+' EXTEND (optionnel, conditionnel)
+UC3a .> UC3 : <<extend>>\n(si filtre appliqué)
+UC4a .> UC4 : <<extend>>\n(si clic lien\nexterne)
+UC8 .> UC1 : <<extend>>\n(disponible\nsur toute page)
+UC9 .> UC1 : <<extend>>\n(disponible\nsur toute page)
+UC10 .> UC1 : <<extend>>\n(disponible\nsur toute page)
+
+' Administration
+UC14 .> UC12 : <<extend>>\n(analytics\naprès déploiement)
+
+UC7 --> EmailSystem : "Envoi email"
+
+@enduml
