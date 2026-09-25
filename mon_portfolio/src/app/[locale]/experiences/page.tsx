@@ -45,7 +45,6 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
         experiences={cvData.experiences} 
         formation={cvData.formation} 
         certifications={cvData.certifications} 
-        t={t} 
       />
     </div>
   );

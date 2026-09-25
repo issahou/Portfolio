@@ -8,7 +8,9 @@ const PROJECTS_DIR = path.join(CONTENT_DIR, 'projects');
 
 function getLocaleFile(baseName: string, locale: Locale): string {
   if (locale === 'fr') return `${baseName}.json`;
-  return `${baseName}.${locale}.json`;
+  if (locale === 'en') return `${baseName}.en.json`;
+  // Fallback to French for invalid locales
+  return `${baseName}.json`;
 }
 
 async function readJson<T>(fileName: string, locale: Locale): Promise<T> {

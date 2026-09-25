@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils/cn';
 import { Button } from '@/components/ui';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Locale } from '@/types';
+import { useTranslations } from '@/hooks/useTranslations';
 
 interface HeroProps {
   locale: Locale;
@@ -25,10 +26,10 @@ interface HeroProps {
       url: string;
     };
   };
-  t: (key: string) => string;
 }
 
-export function Hero({ locale, profile, t }: HeroProps) {
+export function Hero({ locale, profile }: HeroProps) {
+  const t = useTranslations(locale);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {

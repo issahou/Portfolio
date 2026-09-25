@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils/cn';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { formatDateRange } from '@/lib/utils/date';
 import { Locale } from '@/types';
+import { useTranslations } from '@/hooks/useTranslations';
 
 interface ExperienceTimelineProps {
   locale: Locale;
@@ -29,10 +30,10 @@ interface ExperienceTimelineProps {
     year: number;
     url?: string;
   }>;
-  t: (key: string) => string;
 }
 
-export function ExperienceTimeline({ locale, experiences, formation, certifications, t }: ExperienceTimelineProps) {
+export function ExperienceTimeline({ locale, experiences, formation, certifications }: ExperienceTimelineProps) {
+  const t = useTranslations(locale);
   return (
     <section id="experience" className="py-20 lg:py-32 bg-secondary-50 dark:bg-secondary-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,7 +43,7 @@ export function ExperienceTimeline({ locale, experiences, formation, certificati
               {t('experience.title')}
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-400">
-              Mon parcours professionnel et académique
+              {t('experience.subtitle')}
             </p>
           </div>
         </ScrollReveal>

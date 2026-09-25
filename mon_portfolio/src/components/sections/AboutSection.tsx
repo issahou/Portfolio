@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils/cn';
 import { Button } from '@/components/ui';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Locale } from '@/types';
+import { useTranslations } from '@/hooks/useTranslations';
 
 interface AboutSectionProps {
   locale: Locale;
@@ -42,7 +43,6 @@ interface AboutSectionProps {
       url?: string;
     }>;
   };
-  t: (key: string) => string;
 }
 
 const sections = [
@@ -53,7 +53,8 @@ const sections = [
   { id: 'interests', icon: Star, title: 'about.interests' },
 ];
 
-export function AboutSection({ locale, profile, cvData, t }: AboutSectionProps) {
+export function AboutSection({ locale, profile, cvData }: AboutSectionProps) {
+  const t = useTranslations(locale);
   return (
     <section id="about" className="py-20 lg:py-32 bg-white dark:bg-secondary-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

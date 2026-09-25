@@ -40,7 +40,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
         </div>
       </section>
       
-      <ContactForm locale={locale} t={t} profile={profile} />
+      <ContactForm locale={locale} profile={profile} />
     </div>
   );
 }

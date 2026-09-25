@@ -6,7 +6,6 @@ import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { ExperienceTimeline } from '@/components/sections/ExperienceTimeline';
 import { ContactForm } from '@/components/sections/ContactForm';
-import { getMessages, getTranslations } from '@/lib/i18n/messages';
 
 interface HomePageProps {
   params: Promise<{ locale: Locale }>;
@@ -14,7 +13,6 @@ interface HomePageProps {
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
-  const t = getTranslations(locale);
   
   const [profile, skills, projects, cvData, featuredProjects] = await Promise.all([
     contentRepository.getProfile(locale),
@@ -26,12 +24,12 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      <Hero locale={locale} profile={profile} t={t} />
-      <AboutSection locale={locale} profile={profile} cvData={cvData} t={t} />
-      <SkillsSection locale={locale} categories={skills} t={t} />
-      <ProjectsSection locale={locale} projects={featuredProjects} t={t} />
-      <ExperienceTimeline locale={locale} experiences={cvData.experiences} formation={cvData.formation} certifications={cvData.certifications} t={t} />
-      <ContactForm locale={locale} t={t} profile={profile} />
+      <Hero locale={locale} profile={profile} />
+      <AboutSection locale={locale} profile={profile} cvData={cvData} />
+      <SkillsSection locale={locale} categories={skills} />
+      <ProjectsSection locale={locale} projects={featuredProjects} />
+      <ExperienceTimeline locale={locale} experiences={cvData.experiences} formation={cvData.formation} certifications={cvData.certifications} />
+      <ContactForm locale={locale} profile={profile} />
     </>
   );
 }

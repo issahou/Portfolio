@@ -6,6 +6,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Badge } from '@/components/ui';
 import { SkillCategory } from '@/types';
 import { Locale } from '@/types';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const skillIcons: Record<string, () => React.ReactNode> = {
   code: () => <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>,
@@ -19,10 +20,10 @@ const skillIcons: Record<string, () => React.ReactNode> = {
 interface SkillsSectionProps {
   locale: Locale;
   categories: SkillCategory[];
-  t: (key: string) => string;
 }
 
-export function SkillsSection({ locale, categories, t }: SkillsSectionProps) {
+export function SkillsSection({ locale, categories }: SkillsSectionProps) {
+  const t = useTranslations(locale);
   const { categories: skillsCategories, expandedCategories, toggleCategory, isExpanded, expandAll, collapseAll } = useSkills(categories);
 
   return (
@@ -34,7 +35,7 @@ export function SkillsSection({ locale, categories, t }: SkillsSectionProps) {
               {t('skills.title')}
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-400">
-              Technologies et outils que j'utilise au quotidien
+              {t('skills.subtitle')}
             </p>
           </div>
         </ScrollReveal>
@@ -44,13 +45,13 @@ export function SkillsSection({ locale, categories, t }: SkillsSectionProps) {
             onClick={expandAll}
             className="px-4 py-2 text-sm text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
-            Tout développer
+            {t('skills.expandAll')}
           </button>
           <button
             onClick={collapseAll}
             className="px-4 py-2 text-sm text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
-            Tout réduire
+            {t('skills.collapseAll')}
           </button>
         </div>
 

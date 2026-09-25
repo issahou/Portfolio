@@ -40,7 +40,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         </div>
       </section>
       
-      <ProjectsSection locale={locale} projects={projects} t={t} />
+      <ProjectsSection locale={locale} projects={projects} />
     </div>
   );
 }

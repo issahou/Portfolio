@@ -1,6 +1,6 @@
 import { ReactNode, Suspense } from 'react';
 import { Locale } from '@/types';
-import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { ThemeProvider } from '@/lib/theme/ThemeProvider';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { contentRepository } from '@/lib/content/repository';
 import { getMessages } from '@/lib/i18n/messages';

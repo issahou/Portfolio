@@ -40,7 +40,7 @@ export default async function SkillsPage({ params }: SkillsPageProps) {
         </div>
       </section>
       
-      <SkillsSection locale={locale} categories={skills} t={t} />
+      <SkillsSection locale={locale} categories={skills} />
     </div>
   );
 }
