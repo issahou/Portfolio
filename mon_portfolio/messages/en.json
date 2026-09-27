@@ -4,7 +4,6 @@
     "skills": "Skills",
     "projects": "Projects",
     "experience": "Experience",
-    "certifications": "Certifications",
     "interests": "Interests",
     "contact": "Contact"
   },
@@ -61,7 +60,6 @@
     "title": "Experience & Education",
     "experiences": "Professional Experience",
     "education": "Education",
-    "certifications": "Certifications",
     "present": "Present",
     "technologies": "Technologies"
   },

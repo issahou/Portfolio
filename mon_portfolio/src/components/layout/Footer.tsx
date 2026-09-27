@@ -28,7 +28,6 @@ export function Footer({ locale, profile }: FooterProps) {
   const navLinks = [
     { label: t('nav.projects'), href: `/${locale}/projets`, clickable: true },
     { label: t('nav.experience'), href: `/${locale}/experiences`, clickable: true },
-    { label: t('nav.certifications'), href: '#certifications', clickable: false },
     { label: t('nav.interests'), href: '#interests', clickable: false },
     { label: t('nav.contact'), href: `/${locale}/contact`, clickable: true },
   ];

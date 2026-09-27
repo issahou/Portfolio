@@ -1,67 +1,57 @@
 {
   "experiences": [
     {
-      "title": "Full Stack Developer Intern",
-      "company": "TechCorp SAS",
-      "location": "Paris, France",
-      "start": "2025-01",
-      "end": "2025-06",
-      "description": [
-        "Developed a B2B SaaS platform with Next.js/TypeScript",
-        "Designed and implemented REST APIs with NestJS and PostgreSQL",
-        "Set up CI/CD pipelines with GitHub Actions",
-        "Collaborated in Scrum team (5 developers)"
-      ],
-      "technologies": ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"]
-    },
-    {
-      "title": "Freelance Developer",
-      "company": "Self-employed",
+      "title": "Flutter Mobile Developer",
+      "company": "Giga Manager",
       "location": "Remote",
-      "start": "2024-03",
-      "end": "2024-12",
+      "start": "2026-07",
+      "end": "2026-08",
       "description": [
-        "Built showcase and e-commerce websites for local SMEs",
-        "Migrated legacy sites to React/Next.js",
-        "SEO and performance optimization (Core Web Vitals)"
+        "Design and development of a cross-platform mobile application with Flutter for managing and processing restaurant orders.",
+        "Customer interface for ordering food online, secure payments, and real-time order tracking (dine-in or home delivery).",
+        "Dedicated interfaces for each restaurant staff: chef, cashier, waiter, delivery person, and administrator, for optimal task management."
       ],
-      "technologies": ["React", "Next.js", "Tailwind CSS", "WordPress", "Vercel"]
+      "technologies": ["Flutter", "Dart", "Firebase", "Stripe API"]
     },
     {
-      "title": "Junior Web Developer Intern",
-      "company": "Innovate Startup",
-      "location": "Lyon, France",
-      "start": "2023-06",
-      "end": "2023-08",
+      "title": "Full Stack Developer — AI Coaching Platform",
+      "company": "3LM Solution",
+      "location": "Tunis, Tunisia",
+      "start": "2025-06",
+      "end": "2025-08",
       "description": [
-        "Developed features on React Native application",
-        "Wrote unit and integration tests (Jest, React Testing Library)",
-        "Participated in code reviews and Scrum ceremonies"
+        "Participated in building an AI coaching platform connecting users with experts.",
+        "Backend development with NestJS: RESTful API design, user and expert management.",
+        "Frontend development with React.js: user interfaces, admin dashboard, expert interfaces.",
+        "Implemented intelligent matching system between users and experts, plus a real-time chat module."
       ],
-      "technologies": ["React Native", "TypeScript", "Expo", "Jest", "Firebase"]
+      "technologies": ["NestJS", "TypeScript", "React", "REST API", "WebSocket", "PostgreSQL"]
     }
   ],
   "formation": [
     {
-      "degree": "Software Engineering Degree (Master's Level)",
-      "school": "National School of Computer Science",
-      "location": "Paris, France",
-      "start": "2021",
-      "end": "2026",
-      "honors": "Honors - Class Valedictorian 2024"
+      "degree": "Engineering — Software & Intelligent Systems",
+      "school": "FST Tanger (Sep 2024 - Present)",
+      "location": "Tangier, Morocco",
+      "start": "2024-09",
+      "end": "Present",
+      "honors": "State Engineering Degree (DI) — Logiciels et Systèmes Intelligents"
     },
     {
-      "degree": "Bachelor's in Computer Science",
-      "school": "Paris-Saclay University",
-      "location": "Orsay, France",
-      "start": "2018",
-      "end": "2021",
+      "degree": "DEUST Mathematics-Computer Science-Physics — Honors",
+      "school": "FST Settat (Oct. 2022 – Jul. 2024)",
+      "location": "Settat, Morocco",
+      "start": "2022-10",
+      "end": "2024-07",
       "honors": "Honors"
+    },
+    {
+      "degree": "Baccalaureate in Mathematical Sciences — Good",
+      "school": "College Horizon Intl., Ouagadougou (Jul. 2022)",
+      "location": "Ouagadougou, Burkina Faso",
+      "start": "2020",
+      "end": "2022-07",
+      "honors": "Good"
     }
-  ],
-  "certifications": [
-    { "name": "AWS Certified Cloud Practitioner", "year": 2024, "url": "https://aws.amazon.com/certification/" },
-    { "name": "Google Cloud Associate Cloud Engineer", "year": 2024, "url": "https://cloud.google.com/certification" },
-    { "name": "Scrum Master Certified (PSM I)", "year": 2023, "url": "https://www.scrum.org/" }
   ]
 }

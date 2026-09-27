@@ -1,67 +1,57 @@
 {
   "experiences": [
     {
-      "title": "Stage Développeur Full Stack",
-      "company": "TechCorp SAS",
-      "location": "Paris, France",
-      "start": "2025-01",
-      "end": "2025-06",
+      "title": "Développeur Mobile Flutter",
+      "company": "Giga Manager",
+      "location": "Télétravail",
+      "start": "2026-07",
+      "end": "2026-08",
       "description": [
-        "Développement d'une plateforme SaaS B2B en Next.js/TypeScript",
-        "Conception et implémentation d'API REST avec NestJS et PostgreSQL",
-        "Mise en place de pipelines CI/CD avec GitHub Actions",
-        "Collaboration en équipe Scrum (5 développeurs)"
+        "Conception et développement d'une application mobile multiplateforme avec Flutter pour la gestion et le traitement des commandes d'un restaurant.",
+        "Interface client permettant de commander des plats en ligne, d'effectuer des paiements sécurisés et de suivre ses commandes en temps réel (sur place ou livraison à domicile).",
+        "Interfaces dédiées pour chaque staff du restaurant : cuisinier, caissier, serveur, livreur et administrateur, pour une gestion optimale de ses tâches."
       ],
-      "technologies": ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"]
+      "technologies": ["Flutter", "Dart", "Firebase", "Stripe API"]
     },
     {
-      "title": "Développeur Freelance",
-      "company": "Auto-entrepreneur",
-      "location": "À distance",
-      "start": "2024-03",
-      "end": "2024-12",
+      "title": "Développeur Full Stack — Plateforme IA Coaching",
+      "company": "3LM Solution",
+      "location": "Tunis, Tunisie",
+      "start": "2025-06",
+      "end": "2025-08",
       "description": [
-        "Création de sites vitrines et e-commerce pour PME locales",
-        "Migration de sites legacy vers React/Next.js",
-        "Optimisation SEO et performance (Core Web Vitals)"
+        "Participation à la mise en place d'une plateforme de coaching IA avec mise en relation avec des experts.",
+        "Développement du backend avec NestJS : conception d'APIs RESTful, gestion des utilisateurs, gestion des experts.",
+        "Développement du frontend avec React.js : interfaces utilisateur, interfaces admin, interfaces expert.",
+        "Implémentation d'un système de matching intelligent entre utilisateurs et experts, et d'un module de chat en temps réel."
       ],
-      "technologies": ["React", "Next.js", "Tailwind CSS", "WordPress", "Vercel"]
-    },
-    {
-      "title": "Stage Développeur Web Junior",
-      "company": "Startup Innovate",
-      "location": "Lyon, France",
-      "start": "2023-06",
-      "end": "2023-08",
-      "description": [
-        "Développement de fonctionnalités sur application React Native",
-        "Écriture de tests unitaires et d'intégration (Jest, React Testing Library)",
-        "Participation aux code reviews et rituels Scrum"
-      ],
-      "technologies": ["React Native", "TypeScript", "Expo", "Jest", "Firebase"]
+      "technologies": ["NestJS", "TypeScript", "React", "REST API", "WebSocket", "PostgreSQL"]
     }
   ],
   "formation": [
     {
-      "degree": "Diplôme d'Ingénieur Informatique (Bac+5)",
-      "school": "École Nationale Supérieure d'Informatique",
-      "location": "Paris, France",
-      "start": "2021",
-      "end": "2026",
-      "honors": "Mention Bien - Major de promotion 2024"
+      "degree": "Ingéniorat — Logiciels et Systèmes Intelligents",
+      "school": "FST Tanger (Depuis sept. 2024)",
+      "location": "Tangier, Maroc",
+      "start": "2024-09",
+      "end": "Présent",
+      "honors": "State Engineering Degree (DI) — Logiciels et Systèmes Intelligents"
     },
     {
-      "degree": "Licence Informatique (Bac+3)",
-      "school": "Université Paris-Saclay",
-      "location": "Orsay, France",
-      "start": "2018",
-      "end": "2021",
-      "honors": "Mention Assez Bien"
+      "degree": "DEUST Mathématiques-Informatique-Physique — Mention Bien",
+      "school": "FST Settat (Oct. 2022 – Juil. 2024)",
+      "location": "Settat, Maroc",
+      "start": "2022-10",
+      "end": "2024-07",
+      "honors": "Mention Bien"
+    },
+    {
+      "degree": "Baccalauréat Sciences Mathématiques — Assez Bien",
+      "school": "Collège Horizon Intl., Ouagadougou (Juil. 2022)",
+      "location": "Ouagadougou, Burkina Faso",
+      "start": "2020",
+      "end": "2022-07",
+      "honors": "Assez Bien"
     }
-  ],
-  "certifications": [
-    { "name": "AWS Certified Cloud Practitioner", "year": 2024, "url": "https://aws.amazon.com/certification/" },
-    { "name": "Google Cloud Associate Cloud Engineer", "year": 2024, "url": "https://cloud.google.com/certification" },
-    { "name": "Scrum Master Certified (PSM I)", "year": 2023, "url": "https://www.scrum.org/" }
   ]
 }

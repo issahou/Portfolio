@@ -74,16 +74,9 @@ export interface Formation {
   honors?: string;
 }
 
-export interface Certification {
-  name: string;
-  year: number;
-  url?: string;
-}
-
 export interface CVData {
   experiences: Experience[];
   formation: Formation[];
-  certifications: Certification[];
 }
 
 export interface ContactFormData {

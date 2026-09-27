@@ -4,7 +4,6 @@
     "skills": "Compétences",
     "projects": "Projets",
     "experience": "Expérience",
-    "certifications": "Certifications",
     "interests": "Loisirs",
     "contact": "Contact"
   },
@@ -61,7 +60,6 @@
     "title": "Expériences & Formation",
     "experiences": "Expériences Professionnelles",
     "education": "Formation",
-    "certifications": "Certifications",
     "present": "Présent",
     "technologies": "Technologies"
   },

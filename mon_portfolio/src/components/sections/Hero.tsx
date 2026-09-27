@@ -36,8 +36,16 @@ const topLeftSkills = [
     items: ['UML', 'Merise', 'Arch. Log.', 'Design Ptns', 'Clean Arch', 'Microserv.'],
   },
   {
+    name: 'IA & LLMs',
+    items: ['LangChain', 'LangGraph', 'RAG', 'Automatisation', 'Agents IA', 'N8N', 'Machine Learning', 'Vector DB'],
+  },
+  {
     name: 'Développement Full Stack',
     items: ['Java', 'TypeScript', 'JavaScript', 'HTML5/CSS3', 'NestJS', 'Node.js', 'Express', 'REST API', 'Git/GitHub'],
+  },
+  {
+    name: 'Gestion de Projet',
+    items: ['Agile Scrum', 'Kanban', 'Cycle en V', 'Jira', 'Trello'],
   },
 ];
 
@@ -47,8 +55,8 @@ const bottomLeft = {
 };
 
 const bottomRight = {
-  name: 'Gestion de Projet',
-  items: ['Agile Scrum', 'Kanban', 'Cycle en V', 'Jira', 'Trello'],
+  name: 'Data & Analytics',
+  items: ['PySpark', 'Kafka', 'ETL Pipelines', 'Tableau', 'Power BI', 'Looker'],
 };
 
 function SkillGrid({ category, delayOffset }: { category: { name: string; items: string[] }; delayOffset?: number }) {
