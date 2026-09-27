@@ -1,12 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
-import { Send, Settings } from 'lucide-react';
+import { Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui';
 import { Locale } from '@/types';
-import { useTranslations } from '@/hooks/useTranslations';
 
 interface HeroProps {
   locale: Locale;
@@ -33,7 +30,7 @@ interface HeroProps {
   };
 }
 
-const skillCategories = [
+const topLeftSkills = [
   {
     name: 'Analyse & Architecture Logicielle',
     items: ['UML', 'Merise', 'Arch. Log.', 'Design Ptns', 'Clean Arch', 'Microserv.'],
@@ -44,9 +41,47 @@ const skillCategories = [
   },
 ];
 
-export function Hero({ locale, profile }: HeroProps) {
-  const t = useTranslations(locale);
+const bottomLeft = {
+  name: 'Data & Bases de données',
+  items: ['SQL', 'MySQL', 'PostgreSQL', 'MongoDB', 'Modélisation de données', 'ETL', 'Analyse de données'],
+};
 
+const bottomRight = {
+  name: 'Gestion de Projet',
+  items: ['Agile Scrum', 'Kanban', 'Cycle en V', 'Jira', 'Trello'],
+};
+
+function SkillGrid({ category, delayOffset }: { category: { name: string; items: string[] }; delayOffset?: number }) {
+  return (
+    <div>
+      <h4 className="text-sm font-semibold text-secondary-700 dark:text-secondary-300 mb-3">
+        {category.name}
+      </h4>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        {category.items.map((skill, skillIndex) => (
+          <motion.div
+            key={skill}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (delayOffset || 0) + skillIndex * 0.03 }}
+            className="bg-white dark:bg-secondary-900 border border-secondary-200 dark:border-secondary-800 rounded-xl p-3 text-center hover:border-primary-300 dark:hover:border-primary-700 transition-colors"
+          >
+            <div className="w-6 h-6 mx-auto mb-1.5 flex items-center justify-center text-secondary-500 dark:text-secondary-400">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" strokeWidth={2} />
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-secondary-700 dark:text-secondary-300">
+              {skill}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function Hero({ locale, profile }: HeroProps) {
   return (
     <section id="hero" className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary-50/50 to-transparent dark:from-secondary-900/50 dark:to-transparent py-12">
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -55,7 +90,7 @@ export function Hero({ locale, profile }: HeroProps) {
       </div>
 
       <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -176,34 +211,34 @@ export function Hero({ locale, profile }: HeroProps) {
               Langages, compétences & technologies
             </h3>
 
-            {skillCategories.map((category, catIndex) => (
-              <div key={category.name}>
-                <h4 className="text-sm font-semibold text-secondary-700 dark:text-secondary-300 mb-3">
-                  {category.name}
-                </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {category.items.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: catIndex * 0.1 + skillIndex * 0.03 }}
-                      className="bg-white dark:bg-secondary-900 border border-secondary-200 dark:border-secondary-800 rounded-xl p-3 text-center hover:border-primary-300 dark:hover:border-primary-700 transition-colors"
-                    >
-                      <div className="w-6 h-6 mx-auto mb-1.5 flex items-center justify-center text-secondary-500 dark:text-secondary-400">
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="10" strokeWidth={2} />
-                        </svg>
-                      </div>
-                      <span className="text-xs font-medium text-secondary-700 dark:text-secondary-300">
-                        {skill}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+            {topLeftSkills.map((category, catIndex) => (
+              <SkillGrid
+                key={category.name}
+                category={category}
+                delayOffset={catIndex * 0.1}
+              />
             ))}
           </motion.div>
+
+          <div className="lg:col-1">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <SkillGrid category={bottomLeft} delayOffset={0.3} />
+            </motion.div>
+          </div>
+
+          <div className="lg:col-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <SkillGrid category={bottomRight} delayOffset={0.3} />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
