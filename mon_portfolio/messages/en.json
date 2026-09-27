@@ -4,7 +4,19 @@
     "skills": "Skills",
     "projects": "Projects",
     "experience": "Experience",
+    "certifications": "Certifications",
+    "interests": "Interests",
     "contact": "Contact"
+  },
+  "navigation": {
+    "next": "Next",
+    "nextTo": "Next: {page}",
+    "previous": "Previous",
+    "previousTo": "Previous: {page}",
+    "nextAria": "Go to next section",
+    "previousAria": "Go back to previous section",
+    "step": "Step",
+    "of": "of"
   },
   "hero": {
     "downloadCV": "Download CV",

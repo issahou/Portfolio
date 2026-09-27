@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
   experimental: {
     mdxRs: true,
   },
+  allowedDevOrigins: ['192.168.11.154'],
 };
 
 const withMDX = createMDX({

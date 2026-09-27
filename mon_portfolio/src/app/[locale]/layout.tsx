@@ -5,6 +5,8 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { contentRepository } from '@/lib/content/repository';
 import { getMessages } from '@/lib/i18n/messages';
 
+export const metadataBase = new URL('https://portfolio-nom.vercel.app');
+
 function LayoutSkeleton() {
   return (
     <div className="min-h-screen bg-white dark:bg-secondary-950">

@@ -1,111 +1,96 @@
+'use client';
+
 import Link from 'next/link';
-import { GitFork, Link as LinkIcon, Mail, X, FileText } from 'lucide-react';
+import { GitFork, Link as LinkIcon, Mail, X } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
+import { Locale } from '@/types';
+import { useTranslations } from '@/hooks/useTranslations';
 
 interface FooterProps {
-  locale: 'fr' | 'en';
+  locale: Locale;
   profile: {
     name: string;
+    handle?: string;
     social: {
       email: string;
       linkedin: string;
       github: string;
       twitter?: string;
     };
-    cv: {
-      filename: string;
-      url: string;
-    };
+    techStack?: string[];
   };
 }
 
 export function Footer({ locale, profile }: FooterProps) {
+  const t = useTranslations(locale);
+  const currentYear = new Date().getFullYear();
+
+  const navLinks = [
+    { label: t('nav.projects'), href: `/${locale}/projets`, clickable: true },
+    { label: t('nav.experience'), href: `/${locale}/experiences`, clickable: true },
+    { label: t('nav.certifications'), href: '#certifications', clickable: false },
+    { label: t('nav.interests'), href: '#interests', clickable: false },
+    { label: t('nav.contact'), href: `/${locale}/contact`, clickable: true },
+  ];
+
   const socialLinks = [
-    { href: profile.social.github, icon: GitFork, label: 'GitHub', ariaLabel: 'Profil GitHub' },
-    { href: profile.social.linkedin, icon: LinkIcon, label: 'LinkedIn', ariaLabel: 'Profil LinkedIn' },
-    { href: profile.social.twitter, icon: X, label: 'Twitter/X', ariaLabel: 'Profil Twitter' },
-    { href: `mailto:${profile.social.email}`, icon: Mail, label: 'Email', ariaLabel: 'Envoyer un email' },
+    { href: profile.social.github, label: 'GitHub', icon: GitFork, ariaLabel: 'Profil GitHub' },
+    { href: profile.social.linkedin, label: 'LinkedIn', icon: LinkIcon, ariaLabel: 'Profil LinkedIn' },
+    { href: `mailto:${profile.social.email}`, label: 'Email', icon: Mail, ariaLabel: 'Envoyer un email' },
   ].filter(link => link.href);
+
+  const techStack = profile.techStack || ['Python', 'React', 'Three.js', 'Tailwind'];
 
   return (
     <footer className="bg-secondary-50 dark:bg-secondary-950 border-t border-secondary-100 dark:border-secondary-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold text-secondary-900 dark:text-white mb-4">
-              {profile.name}
-            </h3>
-            <p className="text-secondary-600 dark:text-secondary-400 text-sm leading-relaxed mb-6">
-              Développeur Full Stack passionné, créant des applications web modernes et performantes.
-            </p>
-            <div className="flex items-center gap-4">
+      <div className="max-w-sm mx-auto">
+        <div className="border border-secondary-200 dark:border-secondary-800 rounded-3xl p-5 sm:p-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-5 text-xs sm:text-sm">
+              {navLinks.map((link) =>
+                link.clickable ? (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <span
+                    key={link.label}
+                    className="text-secondary-400 dark:text-secondary-500"
+                  >
+                    {link.label}
+                  </span>
+                )
+              )}
+            </div>
+
+            <div className="flex justify-center gap-3 mb-5">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={link.ariaLabel}
-                  className={cn(
-                    'text-secondary-500 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors',
-                    'h-5 w-5'
-                  )}
+                  className="flex items-center gap-1 px-2 py-1 text-xs font-medium text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/30 rounded-lg transition-colors"
                 >
-                  <link.icon className="h-5 w-5" aria-hidden="true" />
+                  <span>(</span>
+                  {link.icon && <link.icon className="h-3 w-3" />}
+                  <span>{link.label}</span>
+                  <span>)</span>
                 </a>
               ))}
             </div>
-          </div>
 
-          <div>
-            <h4 className="font-medium text-secondary-900 dark:text-white mb-4">Navigation</h4>
-            <nav aria-label="Navigation du pied de page">
-              <ul className="space-y-2 text-sm">
-                <li><Link href={`/${locale}`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">Accueil</Link></li>
-                <li><Link href={`/${locale}/competences`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">Compétences</Link></li>
-                <li><Link href={`/${locale}/projets`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">Projets</Link></li>
-                <li><Link href={`/${locale}/experiences`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">Expériences</Link></li>
-                <li><Link href={`/${locale}/contact`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">Contact</Link></li>
-              </ul>
-            </nav>
-          </div>
-
-          <div>
-            <h4 className="font-medium text-secondary-900 dark:text-white mb-4">Ressources</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href={profile.cv.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors"
-                >
-                  <FileText className="h-4 w-4" />
-                  Télécharger le CV
-                </a>
-              </li>
-              <li>
-                <Link href={`/${locale}/projets`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
-                  Voir tous les projets
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/contact`} className="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
-                  Me contacter
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-secondary-200 dark:border-secondary-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-secondary-500 dark:text-secondary-500">
-              © {new Date().getFullYear()} {profile.name}. Tous droits réservés.
-            </p>
-            <p className="text-sm text-secondary-500 dark:text-secondary-500">
-              Construit avec Next.js, TypeScript, Tailwind CSS & déployé sur Vercel
-            </p>
+            <div className="text-center space-y-1 text-xs text-secondary-500 dark:text-secondary-400">
+              <p>
+                &copy; {currentYear} {profile.name} · {t('footer.rights')}
+              </p>
+              <p>{techStack.join(', ')}</p>
+            </div>
           </div>
         </div>
       </div>

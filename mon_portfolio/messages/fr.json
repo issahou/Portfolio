@@ -3,8 +3,20 @@
     "home": "Accueil",
     "skills": "Compétences",
     "projects": "Projets",
-    "experience": "Expériences",
+    "experience": "Expérience",
+    "certifications": "Certifications",
+    "interests": "Loisirs",
     "contact": "Contact"
+  },
+  "navigation": {
+    "next": "Suivant",
+    "nextTo": "Suivant : {page}",
+    "previous": "Précédent",
+    "previousTo": "Précédent : {page}",
+    "nextAria": "Aller à la section suivante",
+    "previousAria": "Revenir à la section précédente",
+    "step": "Étape",
+    "of": "sur"
   },
   "hero": {
     "downloadCV": "Télécharger CV",

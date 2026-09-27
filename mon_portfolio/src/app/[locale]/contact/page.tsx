@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import { Locale } from '@/types';
 import { contentRepository } from '@/lib/content/repository';
 import { ContactForm } from '@/components/sections/ContactForm';
+import Link from 'next/link';
+import { Button } from '@/components/ui';
+import { ArrowLeft } from 'lucide-react';
 import { getMessages, getTranslations } from '@/lib/i18n/messages';
 
 interface ContactPageProps {
@@ -41,6 +44,20 @@ export default async function ContactPage({ params }: ContactPageProps) {
       </section>
       
       <ContactForm locale={locale} profile={profile} />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="text-center">
+          <Link href={`/${locale}/projets`}>
+            <Button variant="outline" size="lg" className="group w-full sm:w-auto">
+              <ArrowLeft className="h-5 w-5 mr-2 transition-transform group-hover:-translate-x-1" />
+              {t('navigation.previousTo', { page: t('nav.projects') })}
+            </Button>
+          </Link>
+          <p className="mt-4 text-sm text-secondary-500 dark:text-secondary-400">
+            {t('navigation.step')} 5 {t('navigation.of')} 5
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

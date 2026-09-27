@@ -2,26 +2,28 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { Button } from '@/components/ui';
 import { LocaleSwitcher } from '@/components/ui/LocaleSwitcher';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { Locale } from '@/types';
-
-const navigation = [
-  { name: 'nav.home', href: '/' },
-  { name: 'nav.skills', href: '/competences' },
-  { name: 'nav.projects', href: '/projets' },
-  { name: 'nav.experience', href: '/experiences' },
-  { name: 'nav.contact', href: '/contact' },
-];
+import { useTranslations } from '@/hooks/useTranslations';
 
 export function Header({ locale }: { locale: Locale }) {
+  const t = useTranslations(locale);
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navigation = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.skills'), href: '/competences' },
+    { name: t('nav.projects'), href: '/projets' },
+    { name: t('nav.experience'), href: '/experiences' },
+    { name: t('nav.contact'), href: '/contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);

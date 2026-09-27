@@ -1,9 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Download, ChevronRight, GraduationCap, Briefcase, Heart, Languages, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils/cn';
+import { Download, ChevronRight, Briefcase, Heart, Languages, Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Locale } from '@/types';
@@ -19,49 +17,82 @@ interface AboutSectionProps {
       url: string;
     };
   };
-  cvData: {
-    experiences: Array<{
-      title: string;
-      company: string;
-      location: string;
-      start: string;
-      end: string;
-      description: string[];
-      technologies: string[];
-    }>;
-    formation: Array<{
-      degree: string;
-      school: string;
-      location: string;
-      start: string;
-      end: string;
-      honors?: string;
-    }>;
-    certifications: Array<{
-      name: string;
-      year: number;
-      url?: string;
-    }>;
-  };
 }
 
-const sections = [
-  { id: 'journey', icon: Briefcase, title: 'about.journey' },
-  { id: 'education', icon: GraduationCap, title: 'about.education' },
-  { id: 'softSkills', icon: Heart, title: 'about.softSkills' },
-  { id: 'languages', icon: Languages, title: 'about.languages' },
-  { id: 'interests', icon: Star, title: 'about.interests' },
-];
+interface InfoCardProps {
+  icon: React.ReactNode;
+  title: string;
+  items: string[];
+  delay?: number;
+}
 
-export function AboutSection({ locale, profile, cvData }: AboutSectionProps) {
+function InfoCard({ icon, title, items, delay = 0 }: InfoCardProps) {
+  return (
+    <ScrollReveal delay={delay} direction="up">
+      <div className="bg-white dark:bg-secondary-900 border border-secondary-100 dark:border-secondary-800 rounded-2xl p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          {icon}
+          <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">{title}</h3>
+        </div>
+        <ul className="space-y-2">
+          {items.map((item, i) => (
+            <li key={i} className="flex items-start gap-2 text-secondary-600 dark:text-secondary-400">
+              <span className="text-primary-500 mt-0.5">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </ScrollReveal>
+  );
+}
+
+function parseAboutSections(about: string) {
+  const sections: { title: string; items: string[] }[] = [];
+  const lines = about.split('\n');
+  let currentTitle: string | null = null;
+  let currentItems: string[] = [];
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+
+    if (trimmed.startsWith('**') && trimmed.endsWith('**')) {
+      if (currentTitle && currentItems.length > 0) {
+        sections.push({ title: currentTitle, items: currentItems });
+      }
+      currentTitle = trimmed.slice(2, -2);
+      currentItems = [];
+    } else if (trimmed.startsWith('-')) {
+      currentItems.push(trimmed.slice(1).trim());
+    }
+  }
+
+  if (currentTitle && currentItems.length > 0) {
+    sections.push({ title: currentTitle, items: currentItems });
+  }
+
+  return sections;
+}
+
+const iconMap: Record<string, React.ReactNode> = {
+  'Parcours & Formation': <Briefcase className="h-5 w-5 text-primary-600 dark:text-primary-400" />,
+  'Soft Skills': <Heart className="h-5 w-5 text-accent-600 dark:text-accent-400" />,
+  Langues: <Languages className="h-5 w-5 text-blue-600 dark:text-blue-400" />,
+  'Centres d\'intérêt': <Star className="h-5 w-5 text-amber-600 dark:text-amber-400" />,
+};
+
+export function AboutSection({ locale, profile }: AboutSectionProps) {
   const t = useTranslations(locale);
+  const sections = parseAboutSections(profile.about);
+
   return (
     <section id="about" className="py-20 lg:py-32 bg-white dark:bg-secondary-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal delay={0} direction="up">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
-              {t('about.title')}
+              À propos
             </h2>
             <p className="text-lg text-secondary-600 dark:text-secondary-400">
               {profile.about.split('\n\n')[0]}
@@ -69,147 +100,40 @@ export function AboutSection({ locale, profile, cvData }: AboutSectionProps) {
           </div>
         </ScrollReveal>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1 space-y-6">
-            {sections.map((section, index) => (
-              <ScrollReveal key={section.id} delay={100 + index * 50} direction="up">
-                <button
-                  className={cn(
-                    'w-full text-left p-4 rounded-xl transition-all duration-200',
-                    'bg-secondary-50 dark:bg-secondary-900 hover:bg-primary-50 dark:hover:bg-primary-900/20'
-                  )}
-                >
-                  <div className="flex items-center gap-3">
-                    <section.icon className="h-6 w-6 text-primary-600 dark:text-primary-400 flex-shrink-0" />
-                    <span className="font-medium text-secondary-900 dark:text-white">{t(section.title)}</span>
-                  </div>
-                </button>
-              </ScrollReveal>
-            ))}
-            
-            <ScrollReveal delay={400} direction="up">
-              <Link href={profile.cv.url} target="_blank" rel="noopener noreferrer">
-                <Button variant="primary" className="w-full" size="lg">
-                  <Download className="h-5 w-5 mr-2" />
-                  {t('cv.download')}
-                </Button>
-              </Link>
-            </ScrollReveal>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {sections.map((section, index) => (
+            <InfoCard
+              key={section.title}
+              icon={iconMap[section.title] || <Briefcase className="h-5 w-5 text-primary-600 dark:text-primary-400" />}
+              title={section.title}
+              items={section.items}
+              delay={100 + index * 50}
+            />
+          ))}
+        </div>
 
-          <div className="lg:col-span-2 space-y-8">
-            <ScrollReveal delay={100} direction="up">
-              <div className="prose prose-secondary dark:prose-invert max-w-none">
-                <div dangerouslySetInnerHTML={{ __html: profile.about.split('\n\n').slice(1).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('') }} />
-              </div>
-            </ScrollReveal>
+        <div className="text-center">
+          <ScrollReveal delay={500} direction="up">
+            <Link href={profile.cv.url} target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="lg" className="group">
+                <Download className="h-5 w-5 mr-2" />
+                Télécharger CV
+                <ChevronRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </ScrollReveal>
 
-            <ScrollReveal delay={200} direction="up">
-              <div>
-                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-6 flex items-center gap-2">
-                  <Briefcase className="h-6 w-6 text-primary-600 dark:text-primary-400" />
-                  {t('experience.experiences')}
-                </h3>
-                <div className="space-y-6">
-                  {cvData.experiences.map((exp, index) => (
-                    <motion.div
-                      key={`${exp.company}-${exp.start}`}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <div className="p-6 bg-secondary-50 dark:bg-secondary-900 rounded-xl border border-secondary-100 dark:border-secondary-800">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                          <div>
-                            <h4 className="font-semibold text-secondary-900 dark:text-white">{exp.title}</h4>
-                            <p className="text-primary-600 dark:text-primary-400">{exp.company}</p>
-                          </div>
-                          <div className="text-right text-sm text-secondary-500 dark:text-secondary-400 whitespace-nowrap">
-                            <span>{exp.location}</span>
-                            <br />
-                            <span>{exp.start} - {exp.end === 'Present' || exp.end === 'Présent' ? 'Présent' : exp.end}</span>
-                          </div>
-                        </div>
-                        <ul className="space-y-1 text-secondary-600 dark:text-secondary-400 text-sm">
-                          {exp.description.map((desc, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className="text-primary-500">•</span>
-                              <span>{desc}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="flex flex-wrap gap-2 mt-4">
-                          {exp.technologies.map((tech, i) => (
-                            <span key={i} className="px-2 py-1 text-xs bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 rounded-full">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={300} direction="up">
-              <div>
-                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-6 flex items-center gap-2">
-                  <GraduationCap className="h-6 w-6 text-primary-600 dark:text-primary-400" />
-                  {t('experience.education')}
-                </h3>
-                <div className="space-y-4">
-                  {cvData.formation.map((edu, index) => (
-                    <motion.div
-                      key={`${edu.school}-${edu.start}`}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <div className="p-5 bg-secondary-50 dark:bg-secondary-900 rounded-xl border border-secondary-100 dark:border-secondary-800">
-                        <h4 className="font-semibold text-secondary-900 dark:text-white">{edu.degree}</h4>
-                        <p className="text-primary-600 dark:text-primary-400">{edu.school}</p>
-                        <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
-                          {edu.location} · {edu.start} - {edu.end}
-                          {edu.honors && ` · ${edu.honors}`}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={400} direction="up">
-              <div>
-                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-6 flex items-center gap-2">
-                  <Star className="h-6 w-6 text-primary-600 dark:text-primary-400" />
-                  {t('experience.certifications')}
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {cvData.certifications.map((cert, index) => (
-                    <motion.div
-                      key={cert.name}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <a
-                        href={cert.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-secondary-50 dark:bg-secondary-900 border border-secondary-200 dark:border-secondary-700 rounded-xl text-sm text-secondary-700 dark:text-secondary-300 hover:border-primary-300 dark:hover:border-primary-700 transition-colors"
-                      >
-                        <span className="font-medium">{cert.name}</span>
-                        <span className="text-secondary-500 dark:text-secondary-400">({cert.year})</span>
-                        {cert.url && <ChevronRight className="h-4 w-4" />}
-                      </a>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal delay={600} direction="up">
+            <Link href={`/${locale}/competences`}>
+              <Button size="lg" className="group w-full sm:w-auto mt-6" variant="outline">
+                {t('navigation.nextTo', { page: t('nav.skills') })}
+                <ArrowRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <p className="mt-4 text-sm text-secondary-500 dark:text-secondary-400">
+              {t('navigation.step')} 1 {t('navigation.of')} 5
+            </p>
+          </ScrollReveal>
         </div>
       </div>
     </section>

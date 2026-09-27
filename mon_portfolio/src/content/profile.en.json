@@ -1,18 +1,25 @@
 {
-  "name": "Your Name",
-  "title": "Software Engineering Student - 5th Year",
-  "tagline": "Full Stack Developer passionate about building modern, performant web applications.",
-  "avatar": "/images/avatar.jpg",
-  "about": "Currently in 5th year of Software Engineering, I'm looking for a final year internship / first job / apprenticeship. My journey has given me solid experience in web development (React, Node.js, TypeScript), software architecture, and agile methodologies.\n\n**Background & Education**\n- Software Engineering Degree (2021-2026) - Honors\n- Specialization: Full Stack Development & Cloud\n- International exchange: Semester abroad\n\n**Soft Skills**\n- Technical communication & simplification\n- Teamwork & technical leadership\n- Complex problem solving\n- Continuous learning & tech watch\n\n**Languages**\n- French: Native\n- English: Fluent (TOEIC 900+)\n- Spanish: Basic\n\n**Interests**\n- Open Source & community contribution\n- Hackathons & coding competitions\n- Hiking & photography\n- Music (guitar)",
+  "name": "Mohamed-Amine EZ-ZAOUI",
+  "handle": "@n1motv",
+  "title": "MIAGISTE • Dev Indépendant • Cybersecurity Enthusiast",
+  "tagline": "I'm a passionate developer, graduated from IAE and specialized in web, mobile, and automation architectures. My versatile background lets me design innovative and secure solutions, adapting to technological challenges with rigor and creativity. I'm curious and engaged in the community.",
+  "avatar": "/images/avatar/photo-profil.png",
+  "about": "I'm a passionate developer, graduated from IAE and specialized in web, mobile, and automation architectures. My versatile background lets me design innovative and secure solutions, adapting to technological challenges with rigor and creativity. I'm curious and engaged in the community.",
   "social": {
-    "email": "you@email.com",
-    "phone": "+33 X XX XX XX XX",
-    "linkedin": "https://linkedin.com/in/yourprofile",
-    "github": "https://github.com/yourprofile",
-    "twitter": "https://x.com/yourprofile"
+    "email": "mohamed-amine.ez-zaoui@example.com",
+    "phone": "+33 6 12 34 56 78",
+    "linkedin": "https://linkedin.com/in/n1motv",
+    "github": "https://github.com/n1motv",
+    "twitter": "https://x.com/n1motv"
   },
   "cv": {
-    "filename": "CV_YourName.pdf",
-    "url": "/cv/CV_YourName.pdf"
-  }
+    "filename": "CV_Mohamed-Amine_EZ-ZAOUI.pdf",
+    "url": "/cv/CV_Mohamed-Amine_EZ-ZAOUI.pdf"
+  },
+  "stats": {
+    "projects": 12,
+    "stacks": ["Full-stack"],
+    "focus": ["Data", "Sec"]
+  },
+  "techStack": ["Python", "React", "Three.js", "Tailwind"]
 }

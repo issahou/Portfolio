@@ -32,6 +32,7 @@ export interface Project {
 
 export interface Profile {
   name: string;
+  handle?: string;
   title: string;
   tagline: string;
   avatar: string;
@@ -46,6 +47,11 @@ export interface Profile {
   cv: {
     filename: string;
     url: string;
+  };
+  stats?: {
+    projects: number;
+    stacks: string[];
+    focus: string[];
   };
 }
 

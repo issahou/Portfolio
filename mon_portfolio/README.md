@@ -120,6 +120,16 @@ npm run test         # Tests unitaires (Vitest)
 npm run test:e2e     # Tests E2E (Playwright)
 ```
 
+npm run dev -- --hostname 0.0.0.0
+
+Added `allowedDevOrigins` to `next.config.ts`. Restart the dev server for the change to take effect:
+
+```bash
+npm run dev -- --hostname 0.0.0.0
+```
+
+Then access from your phone at `http://<your-lan-ip>:3000` (e.g., `http://192.168.11.154:3000`).
+
 ## 📦 Déploiement sur Vercel
 
 1. Push sur GitHub

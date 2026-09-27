@@ -14,7 +14,7 @@ export function useTranslations(locale: Locale) {
   const msgs = useMemo(() => messages[locale] || messages.fr, [locale]);
 
   const t = useMemo(() => {
-    return (key: string): string => {
+    return (key: string, params?: Record<string, string>): string => {
       const keys = key.split('.');
       let value: unknown = msgs;
       for (const k of keys) {
@@ -24,7 +24,13 @@ export function useTranslations(locale: Locale) {
           return key;
         }
       }
-      return value as string;
+      let result = value as string;
+      if (params) {
+        Object.entries(params).forEach(([k, v]) => {
+          result = result.replace(new RegExp(`\\{${k}\\}`, 'g'), v);
+        });
+      }
+      return result;
     };
   }, [msgs]);
 

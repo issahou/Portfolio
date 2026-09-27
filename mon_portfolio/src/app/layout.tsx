@@ -19,9 +19,10 @@ export const metadata: Metadata = {
     default: 'Portfolio - Votre Nom',
     template: '%s | Portfolio',
   },
-  description: 'Développeur Full Stack - Étudiant Ingénieur Informatique 5ème année',
-  keywords: ['développeur', 'full stack', 'react', 'next.js', 'typescript', 'portfolio'],
-  authors: [{ name: 'Votre Nom' }],
+   description: 'Développeur Full Stack - Étudiant Ingénieur Informatique 5ème année',
+   keywords: ['développeur', 'full stack', 'react', 'next.js', 'typescript', 'portfolio'],
+   metadataBase: new URL('https://portfolio-nom.vercel.app'),
+   authors: [{ name: 'Votre Nom' }],
   creator: 'Votre Nom',
   publisher: 'Votre Nom',
   robots: 'index, follow',
@@ -60,11 +61,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${geistMono.variable} h-full`} suppressHydrationWarning>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
-      <body className="min-h-full bg-white dark:bg-secondary-950 text-secondary-900 dark:text-white antialiased">
+      <body className="min-h-full bg-white text-secondary-900 antialiased">
         {children}
       </body>
     </html>
